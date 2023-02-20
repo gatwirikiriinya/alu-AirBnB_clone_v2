@@ -115,10 +115,10 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, args):
         """ Create an object of any class"""
-        # print(args)
+        print(args)
         # getting the arguments in place
         items = args.split(" ")
-        #i print(items)
+        print(items)
         # get first argument
         class_args = str(items[0])
         param_list = []
@@ -164,6 +164,7 @@ class HBNBCommand(cmd.Cmd):
         # set the attirbutes to the instance
         for temp_one in temp_one_list:
             setattr(new_instance, temp_one[0], temp_one[1])
+
         storage.save()
         print(new_instance.id)
         storage.save()
