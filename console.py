@@ -164,7 +164,8 @@ class HBNBCommand(cmd.Cmd):
         # set the attirbutes to the instance
         if len(temp_one_list) > 0:
             for temp_one in temp_one_list:
-                setattr(new_instance, temp_one[0], temp_one[1])
+                if hasattr(new_instance, temp_one[0]):
+                    setattr(new_instance, temp_one[0], temp_one[1])
 
         # storage.save()
         print(new_instance.id)
