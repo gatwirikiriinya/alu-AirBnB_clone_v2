@@ -115,10 +115,10 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, args):
         """ Create an object of any class"""
-        print(args)
+        # print(args)
         # getting the arguments in place
         items = args.split(" ")
-        print(items)
+        # print(items)
         # get first argument
         class_args = str(items[0])
         param_list = []
@@ -150,7 +150,7 @@ class HBNBCommand(cmd.Cmd):
 
             temp_one_list.append(holder_list)
 
-        print(temp_one_list)
+        # print(temp_one_list)
 
 
         if not args:
