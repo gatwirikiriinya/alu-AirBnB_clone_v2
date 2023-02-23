@@ -166,7 +166,7 @@ class HBNBCommand(cmd.Cmd):
             for temp_one in temp_one_list:
                 setattr(new_instance, temp_one[0], temp_one[1])
 
-        storage.save()
+        # storage.save()
         print(new_instance.id)
         new_instance.save()
 
