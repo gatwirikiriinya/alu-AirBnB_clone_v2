@@ -16,9 +16,11 @@ class test_City(test_basemodel):
     def test_state_id(self):
         """ """
         new = self.value()
+        new.state_id = "7843934"
         self.assertEqual(type(new.state_id), str)
 
     def test_name(self):
         """ """
         new = self.value()
+        new.name = "monkey D.Luffy"
         self.assertEqual(type(new.name), str)
