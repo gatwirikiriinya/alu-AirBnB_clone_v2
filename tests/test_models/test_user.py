@@ -18,7 +18,7 @@ class TestUser(TestBaseModel):
     def test_first_name(self):
         """ """
         new = self.value()
-        new.name = "luffy"
+        new.first_name = "luffy"
         self.assertEqual(type(new.first_name), str)
 
     def test_last_name(self):
