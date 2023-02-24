@@ -7,6 +7,7 @@ from sqlalchemy import Column, String, DateTime
 
 Base = declarative_base()
 
+
 class BaseModel:
     """A base class for all hbnb models"""
 
@@ -75,4 +76,4 @@ class BaseModel:
     def delete(self):
         """Deletes the current instance from the storage"""
         from models import storage
-        storage.delete(self)    
+        storage.delete(self)
