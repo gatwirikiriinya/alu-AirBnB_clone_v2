@@ -90,7 +90,7 @@ class TestFileStorage(unittest.TestCase):
 
     def test_type_path(self):
         """ Confirm __file_path is string """
-        self.assertEqual(type(storage._FileStorage.__file_path), str)
+        self.assertEqual(type(storage.FileStorage.__file_path), str)
 
     def test_type_objects(self):
         """ Confirm __objects is a dict """
