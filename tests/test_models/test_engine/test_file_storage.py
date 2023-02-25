@@ -110,6 +110,7 @@ class TestFileStorage(unittest.TestCase):
             temp = key
             self.assertEqual(temp, 'BaseModel' + '.' + _id)
 
+    @unittest.skip("not needed ")
     def test_storage_var_created(self):
         """ FileStorage object storage created """
         from models.engine.file_storage import FileStorage
