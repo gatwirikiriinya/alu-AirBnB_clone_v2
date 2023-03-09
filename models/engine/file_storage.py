@@ -18,7 +18,7 @@ class FileStorage:
                 if type(value) == cls:
                     filtered_obj[key] = value
             return filtered_obj
-            
+
     def new(self, obj):
         """Adds new object to storage dictionary"""
         self.all().update({obj.to_dict()['__class__'] + '.' + obj.id: obj})
@@ -34,11 +34,11 @@ class FileStorage:
 
     def delete(self, obj=None):
         """deletes obj from objects"""
-        if obj:
+        if obj is not None:
             key = key = obj.__class__.__name__ + "." + obj.id
             if key in self.__objects:
                 del self.__objects[key]
-                self.save()        
+                self.save()
 
     def reload(self):
         """Loads storage dictionary from file"""

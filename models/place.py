@@ -26,14 +26,14 @@ class Place(BaseModel, Base):
                      nullable=False)
     user_id = Column(String(60), ForeignKey("users.id", ondelete="CASCADE"),
                      nullable=False)
+    longitude = Column(Float, nullable=True)
     name = Column(String(128), nullable=False)
     description = Column(String(1024), nullable=True)
     number_rooms = Column(Integer, nullable=False, default=0)
+    price_by_night = Column(Integer, nullable=False, default=0)
     number_bathrooms = Column(Integer, nullable=False, default=0)
     max_guest = Column(Integer, nullable=False, default=0)
-    price_by_night = Column(Integer, nullable=False, default=0)
     latitude = Column(Float, nullable=True)
-    longitude = Column(Float, nullable=True)
     amenity_ids = []
 
     if os.getenv("HBNB_TYPE_STORAGE") == "db":
@@ -54,9 +54,8 @@ class Place(BaseModel, Base):
 
         @property
         def amenities(self):
-            """list of amenity instances based on the the amenity id 
+            """list of amenity instances based on the the amenity id
             that has all amenity ids"""
-
             amenities = list(models.storage.all(Amenity).values())
 
             return list(
