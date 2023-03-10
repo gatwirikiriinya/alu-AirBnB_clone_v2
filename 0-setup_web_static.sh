@@ -1,21 +1,13 @@
 #!/usr/bin/env bash
-
-
-if ! which nginx > /dev/null; then
-	sudo apt-get update
-	sudo apt-get -y install nginx
-fi
-
-sudo mkdir -p /data/web_static/releases/test/
-sudo mkdir -p /data/web_static/shared/
-sudo mkdir -p /data/web_static/releases/
-
-
-sudo echo "<html><head><title> Test page</title></head><body><p> This is a test page. </p></body></html>" | sudo tee /data/web_static/releases/test/index.html
-
-
-sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
-
-sudo chown -R ubuntu:ubuntu /data/
-
-sudo sed -i '/^server {/a location /hbnb_static/ {\n\talias /data/web_static/current/;\n}' /etc/nginx/sites-available/default
+# configuring nginx server
+apt-get -y update
+apt-get -y install nginx
+service nginx start
+mkdir -p /data/web_static/releases/test/
+mkdir -p /data/web_static/shared/
+echo "Holberton School" > /data/web_static/releases/test/index.html
+ln -sf /data/web_static/releases/test/ /data/web_static/current
+chown -R ubuntu:ubuntu /data/
+sed -i '38i\\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t\tautoindex off;\n\t}\n' /etc/nginx/sites-available/default
+service nginx restart
+exit 0
