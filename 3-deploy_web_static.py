@@ -5,7 +5,6 @@ from fabric.api import *
 import os
 import shlex
 
-
 env.hosts = ['54.163.215.11', '54.234.149.233']
 env.user = "ubuntu"
 
@@ -61,4 +60,3 @@ def do_deploy(archive_path):
         return True
     except:
         return False
-    
